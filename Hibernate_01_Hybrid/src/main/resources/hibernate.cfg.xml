@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!--  JDBC connection properties -->
+		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/hibernate_01?useSSL=false</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+        
+        <!-- property for show query on console -->
+        <property name="show_sql">true</property>
+        
+        <!-- property for db table behaviour -->
+        <property name="hbm2ddl.auto">create</property>
+        
+        <!-- annotation based config -->
+        <mapping class="com.entity.Student"/>
+        
+	</session-factory>
+</hibernate-configuration>
