@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
-
+		
 @Data
 @Entity
 @Table
@@ -26,4 +26,5 @@ public class Employee {
 
 	@OneToOne
 	private Account account;
+
 }

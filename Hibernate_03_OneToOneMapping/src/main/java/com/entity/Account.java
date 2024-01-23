@@ -21,6 +21,7 @@ public class Account {
 	@Column(unique = false, nullable = false, length = 30)
 	private String accountNumber;
 
+	// define the association
 	@OneToOne(mappedBy = "account")
 	private Employee employee;
 }
