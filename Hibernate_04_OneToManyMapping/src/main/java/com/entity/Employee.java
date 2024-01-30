@@ -1,6 +1,5 @@
 package com.entity;
 
-import java.io.Serializable;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;

@@ -12,9 +12,11 @@ import com.entity.Account;
 import com.entity.Employee;
 import com.util.HibernateUtil;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 public class AppTest {
 
-	private static final Logger log = LogManager.getLogger(AppTest.class);
 
 	public static void main(String[] args) {
 
