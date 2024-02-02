@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+    xmlns:context="http://www.springframework.org/schema/context">
+
+	<!-- bean definitions here -->
+	<context:annotation-config/>
+
+	<bean id="add" class="com.beans.Address">
+		<property name="landmark" value="FC Road Pune"></property>
+	</bean>
+	
+	<bean id="add1" class="com.beans.Address">
+		<property name="landmark" value="Karve Road Pune"></property>
+	</bean>
+	
+	<bean id="add2" class="com.beans.Address">
+		<property name="landmark" value="Viman Nagar Pune"></property>
+	</bean>
+
+	<bean id="stu" class="com.beans.Student">
+	<!-- scope prototype will return new object and default scope will singelton -->
+	<!-- <bean id="stu" class="com.beans.Student" scope="prototype">  -->
+		<property name="age" value="16"></property>
+		<property name="mobile">
+			<list>
+				<value>1234567890</value>
+				<value>1234567891</value>
+			</list>
+		</property>
+		<!-- @autowired will inject reffrence bean automatically --> 
+		<!-- <property name="address">
+			<ref bean="add"/>
+		</property> -->
+	</bean>
+
+</beans>
