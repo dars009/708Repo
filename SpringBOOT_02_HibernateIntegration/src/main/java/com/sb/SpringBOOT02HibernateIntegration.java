@@ -2,13 +2,12 @@ package com.sb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.context.WebApplicationContext;
 
 @SpringBootApplication
-public class SpringBoot01DemoApplication {
+public class SpringBOOT02HibernateIntegration {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBoot01DemoApplication.class, args);
+		SpringApplication.run(SpringBOOT02HibernateIntegration.class, args);
 	}
 
 }
