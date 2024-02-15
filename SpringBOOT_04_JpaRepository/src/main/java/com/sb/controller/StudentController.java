@@ -44,18 +44,46 @@ public class StudentController {
 		return student;
 	}
 	
-	//@PutMapping
-	@PostMapping(path = "/updateStudent")
-	public Student updateStudent(@RequestBody Student student) {
-		System.out.println("Student comes from UI >>>>>" + student);
-		return student;
-	}
-
-	@DeleteMapping(path = "/deleteStudentById")
-	public Student deleteStudentById(@RequestBody Student student) {
-		System.out.println("Student comes from UI >>>>>" + student);
-		return student;
-	}
 	
+	// AddStudent Task Done By Aanis Pathan
+	@PostMapping(path = "/addStudent")
+	public Student addStudent(@RequestBody Student student) {
+    
+		System.out.println(student);
+		return studentService.addStudent(student);
+	}
 
-}
+	// @PutMapping
+	@PutMapping("/updateStudent/{studentId}")
+    public ResponseEntity<String> updateStudent(@PathVariable Integer studentId, @RequestBody Student updatedStudent) {
+        Student result = studentService.updateStudent(studentId, updatedStudent);
+
+        if (result != null) {
+            return new ResponseEntity<>("Student record updated successfully", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Student record not found", HttpStatus.NOT_FOUND);
+        }
+    }
+	/// another way to get track status of function
+	
+//	 if (addedStudent != null) {
+//	        String successMessage = "Student record added successfully";
+//	        return new ResponseEntity<>(successMessage, HttpStatus.OK);
+//	    } else {
+//	        return new ResponseEntity<>("Failed to add student record", HttpStatus.INTERNAL_SERVER_ERROR);
+//	    }
+//	}
+
+	 @DeleteMapping("/deleteStudent")
+	    public ResponseEntity<String> deleteStudent(@RequestBody Map<String, Integer> requestBody) {
+	        Integer studentId = requestBody.get("id");
+	        Map<String, Boolean> response = studentService.deleteStudentById(studentId);
+
+	        if (response != null && response.get("deleted")) {
+	            return new ResponseEntity<>("Student record deleted successfully", HttpStatus.OK);
+	        } else {
+	            return new ResponseEntity<>("Student record not found", HttpStatus.NOT_FOUND);
+	        }
+	    }
+
+	}
