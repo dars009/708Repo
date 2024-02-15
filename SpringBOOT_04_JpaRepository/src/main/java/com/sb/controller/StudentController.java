@@ -17,39 +17,42 @@ import com.sb.constants.GlobalConstants;
 import com.sb.pojo.Student;
 import com.sb.services.StudentService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
+@Slf4j
 @RequestMapping(GlobalConstants.STUDENT_CONTROLLER_MAPPING)
 public class StudentController {
 
 	@Autowired
 	StudentService studentService;
 
-	@GetMapping(value = "/getAllStudent")
+	@GetMapping(GlobalConstants.STUDENT_GET_ALL)
 	public List<Student> getAllStudent() {
 		return studentService.getAllStudent();
 	}
 
-	@PostMapping(path = "/addStudent")
+	@PostMapping(GlobalConstants.STUDENT_ADD)
 	public Student addStudent(@RequestBody Student student) {
-		System.out.println("Student comes from UI >>>>>" + student);
+		log.info("Student comes from UI >>>>>" + student);
 		return studentService.addStudent(student);
 	}
 
 	@GetMapping(path = "/getStudentById/{studentId}")
 	public Optional<Student> getStudentById(@PathVariable Integer studentId) {
-		System.out.println(studentId);
+		log.info("id from uri"+studentId);
 		return studentService.getStudentById(studentId);
 	}
 
 	@PutMapping(path = "/updateStudent")
 	public Student updateStudent(@RequestBody Student student) {
-		System.out.println("Student comes from UI >>>>>" + student);
+		log.info("Student comes from UI >>>>>" + student);
 		return studentService.updateStudent(student);
 	}
 
 	@DeleteMapping(path = "/deleteStudentById/{studentId}")
 	public void deleteStudentById(@PathVariable Integer studentId) {
-		System.out.println("Student comes from UI >>>>>" + studentId);
+		log.info("Student comes from UI >>>>>" + studentId);
 		studentService.deleteStudentById(studentId);
 	}
 
