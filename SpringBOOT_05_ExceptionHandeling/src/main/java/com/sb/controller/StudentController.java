@@ -27,12 +27,12 @@ public class StudentController {
 	@Autowired
 	StudentService studentService;
 
-	@GetMapping(GlobalConstants.STUDENT_GET_ALL)
+	@GetMapping(path=GlobalConstants.STUDENT_GET_ALL)
 	public List<Student> getAllStudent() {
 		return studentService.getAllStudent();
 	}
 
-	@PostMapping(GlobalConstants.STUDENT_ADD)
+	@PostMapping(path=GlobalConstants.STUDENT_ADD)
 	public Student addStudent(@RequestBody Student student) {
 		log.info("Student comes from UI >>>>>" + student);
 		return studentService.addStudent(student);

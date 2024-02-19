@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 public class WelcomeController {
 
 	// root mapping
-	@GetMapping(GlobalConstants.ROOT_MAPPING)
+	@GetMapping(path=GlobalConstants.ROOT_MAPPING)
 	public String welcomeMessage() {
 		log.info(GlobalConstants.WELCOME_MESSAGE);
 		return GlobalConstants.WELCOME_MESSAGE;
