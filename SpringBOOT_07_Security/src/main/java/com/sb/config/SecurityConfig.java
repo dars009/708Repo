@@ -31,19 +31,16 @@ public class SecurityConfig {
 	public UserDetailsService userDetailsService(PasswordEncoder encoder) {
 
 		// InMemoryUserDetailsManager
-		UserDetails admin = User.withUsername("darshit")
-				.password(encoder.encode("123"))
-				.roles("ADMIN", "USER")
-				.build();
+		UserDetails admin = User.withUsername("darshit").password(encoder.encode("123"))
+				.roles("ADMIN", "USER").build();
 
-		UserDetails user = User.withUsername("student")
-				.password(encoder.encode("123"))
-				.roles("USER")
-				.build();
+		UserDetails user = User.withUsername("student").password(encoder.encode("123"))
+				.roles("USER").build();
 
 		return new InMemoryUserDetailsManager(admin, user);
 	}
 
+	// https://docs.spring.io/spring-security/reference/servlet/configuration/java.html > new implementation 
 	// Configuring HttpSecurity
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -54,6 +51,8 @@ public class SecurityConfig {
 				.authorizeHttpRequests().requestMatchers("/auth/user/**").authenticated()
 				.and()
 				.authorizeHttpRequests().requestMatchers("/auth/admin/**").authenticated()
+				.and()
+				.authorizeHttpRequests().requestMatchers("/student/**").authenticated()
 				.and().httpBasic() //form
 				.and().build();
 	}

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +28,7 @@ public class StudentController {
 	@Autowired
 	StudentService studentService;
 
+	@PreAuthorize("hasAuthority('ROLE_USER')")
 	@GetMapping(path=GlobalConstants.STUDENT_GET_ALL)
 	public List<Student> getAllStudent() {
 		return studentService.getAllStudent();
@@ -50,6 +52,7 @@ public class StudentController {
 		return studentService.updateStudent(student);
 	}
 
+	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 	@DeleteMapping(path = "/deleteStudentById/{studentId}")
 	public void deleteStudentById(@PathVariable Integer studentId) {
 		log.info("Student comes from UI >>>>>" + studentId);
