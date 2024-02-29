@@ -8,12 +8,11 @@ import lombok.Data;
 @Entity
 @Data
 public class User {
-	
+
 	@Id
 	@GeneratedValue
 	private Integer id;
-	
+	private String fullName;
 	private String email;
-	
 	private String password;
 }

@@ -17,7 +17,7 @@ public class WelcomeController {
 		
 		// navigate data
 		// it will look for the view
-		return "index";
+		return "login";
 	}
 	
 	 
