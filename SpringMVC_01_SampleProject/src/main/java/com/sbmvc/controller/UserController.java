@@ -24,10 +24,10 @@ public class UserController {
 		// process data - write service for the processing
 		if (userServie.validateUser(user)) {
 			System.out.println("User found in database");
-			return new ModelAndView("dashboard", "Message", "Welcome to Dashboard Login Success !");
+			return new ModelAndView("dashboardUser", "Message", "Welcome to Dashboard Login Success !");
 		} else {
 			System.out.println("user not found");
-			return new ModelAndView("index", "errorMessage", "UserNotFound in DB Login Fail !");
+			return new ModelAndView("login", "errorMessage", "UserNotFound in DB Login Fail !");
 		}
 
 	}
