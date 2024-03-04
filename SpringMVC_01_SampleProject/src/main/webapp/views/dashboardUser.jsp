@@ -1,5 +1,7 @@
-<%@include file="connection.jsp"%>
-
+<%@page import="java.net.CookieHandler"%>
+<%@page import="java.io.PrintWriter"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="java.sql.DriverManager"%>
@@ -25,6 +27,7 @@
   <link rel="stylesheet" href="/resources/dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
+	<%@include file="connection.jsp"%>
 <div class="wrapper">
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">

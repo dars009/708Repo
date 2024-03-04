@@ -1,13 +1,13 @@
 package com.sbmvc.services;
 
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sbmvc.pojo.User;
 import com.sbmvc.repository.UserRepository;
-
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.Query;
 
 @Service
 public class UserService {
@@ -19,7 +19,7 @@ public class UserService {
 	EntityManager entityManager;
 
 	public Boolean validateUser(User user) {
-		Query query = entityManager.createQuery("from User where email = :email AND password = :password", User.class);
+		TypedQuery<User> query = entityManager.createQuery("from User where email = :email AND password = :password", User.class);
 		query.setParameter("email", user.getEmail());
 		query.setParameter("password", user.getPassword());
 		if (query.getResultList().size() > 0)

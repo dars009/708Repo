@@ -1,8 +1,9 @@
 package com.sbmvc.pojo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 import lombok.Data;
 
 @Entity
@@ -15,4 +16,4 @@ public class User {
 	private String fullName;
 	private String email;
 	private String password;
-}
+}	
